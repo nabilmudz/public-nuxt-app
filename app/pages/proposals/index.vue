@@ -1,4 +1,9 @@
-<!-- Kalau modulnya banyak dijadiin satu folder pages/proposals/ .vue .vue .vue -->
+<script setup lang="ts">
+definePageMeta({
+  middleware: 'auth',
+})
+</script>
+
 <template>
   <div class="space-y-6">
     <div class="flex items-center justify-between">
