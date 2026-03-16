@@ -1,5 +1,11 @@
 <script setup lang="ts">
-await navigateTo('/login')
+const { accessToken } = useAuth()
+
+if (accessToken.value) {
+  await navigateTo('/dashboard')
+} else {
+  await navigateTo('/login')
+}
 </script>
 
 <template>
