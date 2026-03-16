@@ -25,6 +25,9 @@ const mahasiswaRows = [
   { no: '2', jenisAnggota: 'Satisfied', noIdentitas: 'Satisfied', nama: 'Satisfied', tugas: 'Satisfied', aksi: 'Satisfied' },
   { no: '3', jenisAnggota: 'Overflowing', noIdentitas: 'Overflowing', nama: 'Overflowing', tugas: 'Overflowing', aksi: 'Overflowing' },
 ]
+definePageMeta({
+  middleware: 'auth',
+})
 </script>
 
 <template>

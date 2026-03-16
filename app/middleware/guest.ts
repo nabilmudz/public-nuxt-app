@@ -5,13 +5,11 @@ export default defineNuxtRouteMiddleware(async () => {
     initAuth()
   }
 
-  if (!refreshToken.value) {
-    return navigateTo('/login')
-  }
+  if (!refreshToken.value) return
 
   const ok = await ensureValidAccessToken()
 
-  if (!ok) {
-    return navigateTo('/login')
+  if (ok) {
+    return navigateTo('/proposals')
   }
 })
