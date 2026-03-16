@@ -203,15 +203,15 @@ const submitDeleteUser = async () => {
 </script>
 
 <template>
-  <div class="h-screen w-screen bg-gray-100">
-    <div class="flex h-full w-full">
+  <div class="min-h-screen bg-gray-100">
+    <div class="flex min-h-screen flex-col lg:flex-row">
       <Sidebar />
 
-      <main class="flex-1 overflow-y-auto bg-gray-50">
+      <main class="w-full flex-1 overflow-y-auto bg-gray-50">
         <Header />
 
-        <div class="px-8 py-6">
-            <div class="mb-5 flex items-start justify-between">
+        <div class="px-4 py-6 sm:px-6 lg:px-8">
+            <div class="mb-5 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
               <div>
                     <h1 class="text-2xl font-semibold text-gray-900">Data User</h1>
                 <p class="mt-2 text-base text-gray-500">
@@ -219,7 +219,7 @@ const submitDeleteUser = async () => {
                     </p>
                 </div>
 
-              <div class="flex">
+              <div class="flex sm:pt-1">
                     <button
                     type="button"
                     @click="openCreateModal"
@@ -243,8 +243,8 @@ const submitDeleteUser = async () => {
           </div>
 
           <!-- Table -->
-          <div v-else class="overflow-hidden border border-gray-300 bg-white">
-            <table class="min-w-full text-sm">
+          <div v-else class="overflow-x-auto border border-gray-300 bg-white">
+            <table class="w-full min-w-[760px] text-sm">
               <thead class="bg-gray-100 text-left text-gray-500">
                 <tr>
                   <th class="px-4 py-3 font-semibold">Name</th>
@@ -273,16 +273,16 @@ const submitDeleteUser = async () => {
                     <span v-else-if="user.role === 'PROPOSAL_REVIEWER' || user.role === 'PROPOSAL_REVIEWWER'">LPPM</span>
                     <span v-else>{{ user.role }}</span>
                   </td>
-                  <td class="px-3 py-2.5">
+                  <td class="px-3 py-2.5 whitespace-nowrap">
                     <button
-                      class="mx-3 rounded-md bg-yellow-500 px-3 py-1 text-sm text-white hover:bg-yellow-600"
+                      class="rounded-md bg-yellow-500 px-3 py-1 text-sm text-white hover:bg-yellow-600"
                       type="button"
                       @click="openEditModal(user)"
                     >
                       Edit
                     </button>
                     <button
-                      class="rounded-md bg-red-500 px-3 py-1 text-sm text-white hover:bg-red-600"
+                      class="ml-2 rounded-md bg-red-500 px-3 py-1 text-sm text-white hover:bg-red-600"
                       type="button"
                       @click="openDeleteModal(user)"
                     >

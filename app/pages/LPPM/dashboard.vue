@@ -31,13 +31,13 @@ const proposalStages = [
 
 <template>
   <div class="min-h-screen bg-stone-100 text-slate-900">
-    <div class="flex min-h-screen">
+    <div class="flex min-h-screen flex-col lg:flex-row">
       <Sidebar />
 
-      <main class="flex-1">
+      <main class="w-full flex-1">
         <Header />
 
-        <div class="space-y-8 px-8 py-8">
+        <div class="space-y-6 px-4 py-6 sm:px-6 lg:space-y-8 lg:px-8 lg:py-8">
           <section class="grid gap-4 lg:grid-cols-3">
             <article
               v-for="item in reviewStats"

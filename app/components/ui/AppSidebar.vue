@@ -37,7 +37,7 @@ const isActive = (path: string) => route.path === path
 </script>
 
 <template>
-  <aside class="h-screen w-64 overflow-hidden bg-indigo-950 px-5 py-6 text-white">
+  <aside class="w-full bg-indigo-950 px-4 py-5 text-white sm:px-5 sm:py-6 lg:h-screen lg:w-64 lg:overflow-hidden">
     <!-- Header -->
     <div class="mb-8 flex items-center gap-3">
       <div class="flex h-9 w-9 items-center justify-center rounded-full bg-indigo-700">
@@ -53,7 +53,7 @@ const isActive = (path: string) => route.path === path
           <path d="M12 8v4l3 3" />
         </svg>
       </div>
-      <span class="text-2xl font-semibold">Simpemnas</span>
+      <span class="text-xl font-semibold sm:text-2xl">Simpemnas</span>
     </div>
 
     <p
@@ -63,7 +63,7 @@ const isActive = (path: string) => route.path === path
     </p>
 
     <!-- Menu -->
-    <nav class="space-y-1.5">
+    <nav class="flex flex-wrap gap-1.5 lg:block lg:space-y-1.5">
       <NuxtLink
         v-for="menu in menus"
         :key="menu.path"

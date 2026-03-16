@@ -31,13 +31,13 @@ const toneClasses: Record<string, string> = {
 
 <template>
   <div class="min-h-screen bg-slate-100 text-slate-900">
-    <div class="flex min-h-screen">
+    <div class="flex min-h-screen flex-col lg:flex-row">
       <Sidebar />
 
-      <main class="flex-1">
+      <main class="w-full flex-1">
         <Header />
 
-        <div class="space-y-8 px-8 py-8">
+        <div class="space-y-6 px-4 py-6 sm:px-6 lg:space-y-8 lg:px-8 lg:py-8">
           <section class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             <article
               v-for="card in statCards"
@@ -59,7 +59,7 @@ const toneClasses: Record<string, string> = {
 
           <section class="grid gap-6 xl:grid-cols-[1.6fr_1fr]">
             <article class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
-              <div class="flex items-center justify-between">
+              <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div>
                   <h3 class="text-xl font-semibold text-slate-900">Aktivitas Terbaru</h3>
                   <p class="mt-1 text-sm text-slate-500">Ringkasan pekerjaan administratif hari ini.</p>
@@ -74,7 +74,7 @@ const toneClasses: Record<string, string> = {
                 <div
                   v-for="activity in recentActivities"
                   :key="activity.title"
-                  class="flex items-center justify-between rounded-xl border border-slate-200 px-4 py-4"
+                  class="flex flex-col gap-2 rounded-xl border border-slate-200 px-4 py-4 sm:flex-row sm:items-center sm:justify-between"
                 >
                   <div>
                     <p class="font-medium text-slate-900">{{ activity.title }}</p>

@@ -52,20 +52,20 @@ const submitUser = async () => {
 </script>
 
 <template>
-	<div class="h-screen w-screen bg-gray-100">
-		<div class="flex h-full w-full">
+	<div class="min-h-screen bg-gray-100">
+		<div class="flex min-h-screen flex-col lg:flex-row">
 			<Sidebar />
 
-			<main class="flex-1 overflow-y-auto bg-gray-50">
+			<main class="w-full flex-1 overflow-y-auto bg-gray-50">
 				<Header />
 
-				<div class="px-8 py-6">
+				<div class="px-4 py-6 sm:px-6 lg:px-8">
 					<div class="mb-6">
 						<h1 class="text-2xl font-semibold text-gray-900">Tambah User</h1>
 						<p class="mt-2 text-base text-gray-500">Tambahkan akun user baru ke sistem</p>
 					</div>
 
-					<form class="max-w-2xl space-y-4 rounded-lg border border-gray-300 bg-white p-6" @submit.prevent="submitUser">
+					<form class="w-full max-w-2xl space-y-4 rounded-lg border border-gray-300 bg-white p-4 sm:p-6" @submit.prevent="submitUser">
 						<div>
 							<label class="mb-1.5 block text-sm font-medium text-gray-700">Nama</label>
 							<input
