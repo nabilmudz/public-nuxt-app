@@ -5,6 +5,7 @@ import Header from '~/components/ui/AppHeader.vue'
 definePageMeta({
   layout: false,
   middleware: 'auth',
+  requiredRole: 'PROPOSAL_SUBMITTER',
 })
 
 const proposalRows = [
@@ -49,8 +50,8 @@ const proposalRows = [
 
         <div class="px-8 py-6">
           <div class="mb-5">
-            <h1 class="text-4xl font-semibold text-gray-900">Usulan Anda</h1>
-            <p class="mt-1 text-xl text-gray-600">Kelola Usulan yang anda ajukan disini</p>
+            <h1 class="text-2xl font-semibold text-gray-900">Usulan Anda</h1>
+            <p class="mb-8 mt-2 text-base text-gray-500">Kelola Usulan yang anda ajukan disini</p>
           </div>
 
           <NuxtLink

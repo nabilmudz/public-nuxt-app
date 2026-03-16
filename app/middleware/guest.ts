@@ -1,5 +1,5 @@
 export default defineNuxtRouteMiddleware(async () => {
-  const { initAuth, refreshToken, ensureValidAccessToken } = useAuth()
+  const { initAuth, refreshToken, ensureValidAccessToken, user, getDashboardPathByRole } = useAuth()
 
   if (process.client) {
     initAuth()
@@ -10,6 +10,6 @@ export default defineNuxtRouteMiddleware(async () => {
   const ok = await ensureValidAccessToken()
 
   if (ok) {
-    return navigateTo('/proposals')
+    return navigateTo(getDashboardPathByRole(user.value?.role))
   }
 })

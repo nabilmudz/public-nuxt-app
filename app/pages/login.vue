@@ -10,7 +10,7 @@ const email = ref('')
 const password = ref('')
 const errorMessage = ref('')
 
-const { login } = useAuth()
+const { login, getDashboardPathByRole, user } = useAuth()
 
 const handleLogin = async () => {
   errorMessage.value = ''
@@ -22,7 +22,7 @@ const handleLogin = async () => {
     return
   }
 
-  await navigateTo('/dashboard')
+  await navigateTo(getDashboardPathByRole(user.value?.role))
 }
 </script>
 

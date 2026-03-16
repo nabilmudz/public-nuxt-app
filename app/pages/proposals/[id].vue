@@ -2,6 +2,7 @@
   const route = useRoute()
 definePageMeta({
   middleware: 'auth',
+  requiredRole: 'PROPOSAL_SUBMITTER',
 })
 </script>
 

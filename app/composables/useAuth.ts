@@ -1,7 +1,10 @@
+export type UserRole = 'ADMIN' | 'PROPOSAL_SUBMITTER' | 'PROPOSAL_REVIEWER'
+
 type LoginUser = {
   id: string
   name: string
   email: string
+  role: UserRole
 }
 
 type LoginData = {
@@ -31,6 +34,14 @@ export const useAuth = () => {
   const user = useState<LoginUser | null>('auth-user', () => null)
   const accessToken = useState<string | null>('auth-access-token', () => null)
   const refreshToken = useState<string | null>('auth-refresh-token', () => null)
+
+  const getDashboardPathByRole = (role?: UserRole | null) => {
+    switch (role) {
+      case 'ADMIN': return '/admin/dashboard'
+      case 'PROPOSAL_REVIEWER': return '/LPPM/dashboard'
+      default: return '/dashboard'
+    }
+  }
 
   const setAuthData = (data: LoginData) => {
     user.value = data.user
@@ -107,9 +118,27 @@ export const useAuth = () => {
     const savedAccessToken = localStorage.getItem('access_token')
     const savedRefreshToken = localStorage.getItem('refresh_token')
 
-    user.value = savedUser ? JSON.parse(savedUser) : null
+    const parsedUser = savedUser ? JSON.parse(savedUser) as Partial<LoginUser> : null
+    const tokenPayload = savedAccessToken ? parseJwt(savedAccessToken) : null
+    const tokenRole = tokenPayload?.role as UserRole | undefined
+
+    if (parsedUser) {
+      user.value = {
+        id: parsedUser.id || '',
+        name: parsedUser.name || '',
+        email: parsedUser.email || '',
+        role: parsedUser.role || tokenRole || 'PROPOSAL_SUBMITTER',
+      }
+    } else {
+      user.value = null
+    }
+
     accessToken.value = savedAccessToken
     refreshToken.value = savedRefreshToken
+
+    if (user.value) {
+      localStorage.setItem('auth_user', JSON.stringify(user.value))
+    }
 
     return !!savedRefreshToken
   }
@@ -171,6 +200,7 @@ export const useAuth = () => {
     user,
     accessToken,
     refreshToken,
+    getDashboardPathByRole,
     login,
     initAuth,
     refresh,

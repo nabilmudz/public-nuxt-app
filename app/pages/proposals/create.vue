@@ -5,6 +5,7 @@ import Header from '~/components/ui/AppHeader.vue'
 definePageMeta({
   layout: false,
   middleware: 'auth',
+  requiredRole: 'PROPOSAL_SUBMITTER',
 })
 
 const steps = [

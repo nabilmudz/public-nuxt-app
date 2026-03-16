@@ -5,6 +5,7 @@ import Header from '~/components/ui/AppHeader.vue'
 definePageMeta({
 	layout: false,
 	middleware: 'auth',
+	requiredRole: 'PROPOSAL_SUBMITTER',
 })
 
 const { user } = useAuth()
@@ -20,9 +21,9 @@ const { user } = useAuth()
 
 				<div class="space-y-8 px-8 py-6">
 					<section>
-						<h2 class="mb-5 text-3xl font-semibold text-gray-900">
+						<h4 class="mb-5 text-2xl font-semibold text-gray-900">
 								Selamat datang, {{ user?.name || 'User' }}
-							</h2>
+							</h4>
 
 						<div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
 							<article class="rounded-lg bg-white px-5 py-4 shadow-sm">
@@ -77,10 +78,11 @@ const { user } = useAuth()
 							</div>
 						</section>
 
-						<section>
-							<p class="mb-4 text-lg text-gray-600">Anda dapat mengajukan usulan terkait dengan layanan berikut</p>
+						<section class="mb-5">
+							<p class="mb-4 mt-2 text-base text-gray-600">Anda dapat mengajukan usulan terkait dengan layanan berikut</p>
 							<div class="grid grid-cols-1 gap-5 lg:grid-cols-2">
-								<button class="flex items-center justify-center gap-4 rounded-lg bg-white py-7 shadow-sm" type="button">
+							<NuxtLink
+								to="/proposals/create" class="flex items-center justify-center gap-4 rounded-lg bg-white py-7 shadow-sm">
 									<span class="rounded-full bg-blue-500 p-3 text-white">
 										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6">
 											<path
@@ -90,26 +92,26 @@ const { user } = useAuth()
 											/>
 										</svg>
 									</span>
-									<span class="text-2xl font-semibold text-gray-700">Penelitian</span>
-								</button>
+									<span class="text-xl font-semibold text-gray-700">Penelitian</span>
+							</NuxtLink>
 
-							<button class="flex items-center justify-center gap-4 rounded-lg bg-white py-7 shadow-sm" type="button">
-								<span class="rounded-full bg-blue-500 p-3 text-white">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6">
-											<path
-												fill-rule="evenodd"
-												d="M11.48 3.499a.75.75 0 0 1 1.04 0l2.5 2.375 3.42-.394a.75.75 0 0 1 .782.964l-1.191 3.21 1.95 2.86a.75.75 0 0 1-.305 1.104l-3.134 1.517-.94 3.324a.75.75 0 0 1-.963.518l-3.138-1.304-3.138 1.304a.75.75 0 0 1-.962-.518l-.941-3.324-3.133-1.517a.75.75 0 0 1-.305-1.104l1.95-2.86-1.191-3.21a.75.75 0 0 1 .782-.964l3.42.394 2.497-2.375Z"
-												clip-rule="evenodd"
-											/>
-										</svg>
-									</span>
-									<span class="text-2xl font-semibold text-gray-700">Pengabdian</span>
-								</button>
+								<NuxtLink to="/proposals/create" class="flex items-center justify-center gap-4 rounded-lg bg-white py-7 shadow-sm">
+									<span class="rounded-full bg-blue-500 p-3 text-white">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6">
+												<path
+													fill-rule="evenodd"
+													d="M11.48 3.499a.75.75 0 0 1 1.04 0l2.5 2.375 3.42-.394a.75.75 0 0 1 .782.964l-1.191 3.21 1.95 2.86a.75.75 0 0 1-.305 1.104l-3.134 1.517-.94 3.324a.75.75 0 0 1-.963.518l-3.138-1.304-3.138 1.304a.75.75 0 0 1-.962-.518l-.941-3.324-3.133-1.517a.75.75 0 0 1-.305-1.104l1.95-2.86-1.191-3.21a.75.75 0 0 1 .782-.964l3.42.394 2.497-2.375Z"
+													clip-rule="evenodd"
+												/>
+											</svg>
+										</span>
+									<span class="text-xl font-semibold text-gray-700">Pengabdian</span>
+								</NuxtLink>
 						</div>
 					</section>
 
 					<section>
-						<h3 class="text-3xl font-semibold text-gray-900">Status Usulan Terakhir</h3>
+						<h3 class="text-2xl font-semibold text-gray-900">Status Usulan Terakhir</h3>
 						<p class="mb-8 mt-2 text-base text-gray-500">Lihat Status Usulan Terakhir Anda</p>
 
 						<div class="relative mt-8">
