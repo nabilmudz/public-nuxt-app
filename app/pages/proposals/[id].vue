@@ -264,7 +264,7 @@ const submitProposal = async () => {
       formData.append('studentMembers', JSON.stringify(payload.studentMembers))
 
       if (proposalFile.value) {
-        formData.append('file', proposalFile.value)
+        formData.append('proposalFile', proposalFile.value)
       }
 
       await $fetch(`${config.public.apiBase}/api/proposal/${proposalId.value}`, {
