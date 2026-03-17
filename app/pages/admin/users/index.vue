@@ -275,14 +275,14 @@ const submitDeleteUser = async () => {
                   </td>
                   <td class="px-3 py-2.5 whitespace-nowrap">
                     <button
-                      class="rounded-md bg-yellow-500 px-3 py-1 text-sm text-white hover:bg-yellow-600"
+                      class="rounded border border-amber-500 px-2.5 py-1 text-xs font-medium text-amber-600 hover:bg-amber-50"
                       type="button"
                       @click="openEditModal(user)"
                     >
                       Edit
                     </button>
                     <button
-                      class="ml-2 rounded-md bg-red-500 px-3 py-1 text-sm text-white hover:bg-red-600"
+                      class="ml-2 rounded border border-red-500 px-2.5 py-1 text-xs font-medium text-red-600 hover:bg-red-50"
                       type="button"
                       @click="openDeleteModal(user)"
                     >

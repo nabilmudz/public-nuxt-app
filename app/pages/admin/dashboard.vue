@@ -57,8 +57,8 @@ const toneClasses: Record<string, string> = {
             </article>
           </section>
 
-          <section class="grid gap-6 xl:grid-cols-[1.6fr_1fr]">
-            <article class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <section class="grid gap-6">
+            <article class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200 w-full">
               <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div>
                   <h3 class="text-xl font-semibold text-slate-900">Aktivitas Terbaru</h3>

@@ -26,7 +26,6 @@ const menus = computed(() => {
     ]
   }
 
-  // default user
   return [
     { name: 'Dashboard', path: '/dashboard' },
     { name: 'Proposal Saya', path: '/proposals' }
@@ -37,8 +36,8 @@ const isActive = (path: string) => route.path === path
 </script>
 
 <template>
-  <aside class="w-full bg-indigo-950 px-4 py-5 text-white sm:px-5 sm:py-6 lg:h-screen lg:w-64 lg:overflow-hidden">
-    <!-- Header -->
+  <aside
+  class="w-full bg-indigo-950 px-4 py-5 text-white sm:px-5 sm:py-6 lg:h-screen lg:w-64 lg:flex-shrink-0 lg:overflow-y-auto">
     <div class="mb-8 flex items-center gap-3">
       <div class="flex h-9 w-9 items-center justify-center rounded-full bg-indigo-700">
         <svg
@@ -62,7 +61,6 @@ const isActive = (path: string) => route.path === path
       MENU UTAMA
     </p>
 
-    <!-- Menu -->
     <nav class="flex flex-wrap gap-1.5 lg:block lg:space-y-1.5">
       <NuxtLink
         v-for="menu in menus"

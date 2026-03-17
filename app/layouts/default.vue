@@ -1,4 +1,3 @@
-<!-- Digunain buat layout utama dari modul -->
 <template>
   <div class="min-h-screen bg-gray-100 text-gray-900">
     <div class="flex min-h-screen">

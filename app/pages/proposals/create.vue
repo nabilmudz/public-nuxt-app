@@ -6,7 +6,6 @@ import AddDosenMemberModal from '~/components/proposal/AddDosenMemberModal.vue'
 import AddMahasiswaMemberModal from '~/components/proposal/AddMahasiswaMemberModal.vue'
 import { FocusType, ProgramCategory, ProposalInputMode, ScopeLevel } from '~/types/proposal'
 
-// Variabel penyimpan data HTML dari editor
 const isiProposal = ref('<p>Mulai ketik proposal di sini...</p>')
 const inputMode = ref<ProposalInputMode>(ProposalInputMode.EDITOR)
 const kategoriProgram = ref<ProgramCategory>(ProgramCategory.PENGABDIAN)
@@ -140,7 +139,7 @@ const submitProposal = async () => {
     scientificFieldLevel2: rumpunIlmuLevel2.value,
     scientificFieldLevel3: rumpunIlmuLevel3.value,
     leadName: namaKetua.value,
-    status: 'DRAFT',
+    status: 'SUBMITTED',
     inputMode: inputMode.value,
     editorContent: inputMode.value === ProposalInputMode.EDITOR ? isiProposal.value : null,
     serviceMembers: dosenRows.value.map(member => ({
